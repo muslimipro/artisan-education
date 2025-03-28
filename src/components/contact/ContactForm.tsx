@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { FormState } from './types';
+import emailjs from '@emailjs/browser';
 
 interface ContactInfo {
     email: string;
@@ -9,6 +10,7 @@ interface ContactInfo {
 
 const ContactForm = () => {
     const t = useTranslations('Contact.form');
+    const formRef = useRef<HTMLFormElement>(null);
     const [formState, setFormState] = useState<FormState>({
         name: '',
         email: '',
@@ -23,6 +25,24 @@ const ContactForm = () => {
     const [error, setError] = useState<string | null>(null);
     const [debugInfo, setDebugInfo] = useState<string | null>(null);
 
+    // Initialize EmailJS
+    useEffect(() => {
+        // Check environment variables
+        console.log("EmailJS env variables:", {
+            serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ? 'Available' : 'Missing',
+            templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID ? 'Available' : 'Missing',
+            publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ? 'Available' : 'Missing',
+        });
+        
+        // Only initialize if public key is available
+        if (process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY) {
+            emailjs.init(process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+            console.log("EmailJS initialized");
+        } else {
+            console.error("EmailJS public key not found");
+        }
+    }, []);
+
     useEffect(() => {
         // Fetch contact info from the public data file
         fetch('/data.json')
@@ -35,49 +55,17 @@ const ContactForm = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormState(prev => ({ ...prev, [name]: value }));
-    };
-
-    const sendEmail = async (formData: FormState) => {
-        console.log('Sending email with form data:', formData);
-        try {
-            const response = await fetch('/api/email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            console.log('Got response from API:', {
-                status: response.status,
-                statusText: response.statusText,
-                ok: response.ok
-            });
-
-            const data = await response.json();
-            console.log('Response data:', data);
-
-            if (!response.ok) {
-                const errorMessage = data.error || 'Failed to send email';
-                console.error('API error:', errorMessage);
-                throw new Error(errorMessage);
-            }
-
-            return data;
-        } catch (error) {
-            const errorMessage = error instanceof Error
-                ? `${error.name}: ${error.message}`
-                : 'Unknown error occurred';
-
-            console.error('Error sending email:', errorMessage);
-
-            if (error instanceof Error && error.stack) {
-                console.error('Error stack:', error.stack);
-            }
-
-            throw error;
-        }
+        // Map EmailJS field names to our state field names
+        const fieldNameMapping: Record<string, string> = {
+            'from_name': 'name',
+            'from_email': 'email',
+            'message': 'message'
+        };
+        
+        // Use the mapped field name if it exists, otherwise use the original name
+        const stateField = fieldNameMapping[name] || name;
+        
+        setFormState(prev => ({ ...prev, [stateField]: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -86,10 +74,33 @@ const ContactForm = () => {
         setError(null);
         setDebugInfo(null);
 
-        console.log('Form submitted, sending email...');
+        console.log('Form submitted, sending email via EmailJS...');
+        console.log('Form state:', formState);
+        console.log('Form reference available:', !!formRef.current);
+        
+        if (formRef.current) {
+            console.log('Form elements:', formRef.current.elements);
+        }
 
         try {
-            const result = await sendEmail(formState);
+            if (!formRef.current) {
+                throw new Error('Form reference not available');
+            }
+
+            console.log('Using EmailJS parameters:', {
+                serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY?.substring(0, 4) + '...'
+            });
+
+            // Send email using EmailJS
+            const result = await emailjs.sendForm(
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+                formRef.current,
+                process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+            );
+
             console.log('Email sent successfully:', result);
             setIsSubmitted(true);
             setFormState({
@@ -116,7 +127,12 @@ const ContactForm = () => {
                 error: error instanceof Error ? {
                     name: error.name,
                     message: error.message
-                } : 'Unknown error type'
+                } : 'Unknown error type',
+                envCheck: {
+                    hasServiceId: !!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+                    hasTemplateId: !!process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+                    hasPublicKey: !!process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+                }
             }, null, 2));
         } finally {
             setIsSubmitting(false);
@@ -170,7 +186,7 @@ const ContactForm = () => {
                     </button>
                 </div>
             ) : (
-                <form onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 flex-1 flex flex-col">
                     {error && (
                         <div className="bg-red-50 border border-red-100 rounded-lg p-4 text-red-700 mb-4">
                             <p className="font-medium">Error: {error}</p>
@@ -189,7 +205,7 @@ const ContactForm = () => {
                         <input
                             type="text"
                             id="name"
-                            name="name"
+                            name="from_name"
                             value={formState.name}
                             onChange={handleChange}
                             required
@@ -205,7 +221,7 @@ const ContactForm = () => {
                         <input
                             type="email"
                             id="email"
-                            name="email"
+                            name="from_email"
                             value={formState.email}
                             onChange={handleChange}
                             required

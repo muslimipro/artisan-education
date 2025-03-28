@@ -258,8 +258,10 @@ const CircuitBoard = () => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIsComponentVisible(entry.isIntersecting);
+                // Log to help with debugging
+                console.log("Component visibility changed:", entry.isIntersecting);
             },
-            { threshold: 0.5 }
+            { threshold: 0.1, rootMargin: "0px 0px 0px 0px" }
         );
 
         // Save a reference to the current value of sectionRef
@@ -267,6 +269,7 @@ const CircuitBoard = () => {
 
         if (currentSectionRef) {
             observer.observe(currentSectionRef);
+            console.log("Observing section ref");
         }
 
         return () => {
@@ -275,6 +278,22 @@ const CircuitBoard = () => {
             }
         };
     }, []);
+
+    // As a fallback, attempt to start the tutorial even if Intersection Observer fails
+    useEffect(() => {
+        // Fallback to initiate the tutorial if all other methods fail
+        const fallbackTimer = setTimeout(() => {
+            // Force isComponentVisible to true after a delay if not already true
+            if (!isComponentVisible) {
+                console.log("Fallback: Forcing component visible after timeout");
+                setIsComponentVisible(true);
+            }
+        }, 2000); // 2 second fallback
+        
+        return () => {
+            clearTimeout(fallbackTimer);
+        };
+    }, [isComponentVisible]);
 
     // Attach event listeners for user interaction once on component mount
     useEffect(() => {

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 
 export type TutorialStep = 'placing-led' | 'placing-button' | 'entering-code' | 'running-program' | 'pressing-button' | 'completed';
@@ -486,7 +486,7 @@ while True:
     };
 
     // Helper function to detect real user interaction with components
-    const userInteractionDetected = (componentTypes: (string | undefined)[]) => {
+    const userInteractionDetected = useCallback((componentTypes: (string | undefined)[]) => {
         // Detect if components changed in a way that's inconsistent with the tutorial
         const tutorialStateMapping: Record<TutorialStep, string[]> = {
             'placing-led': [],
@@ -501,18 +501,32 @@ while True:
         const actualComponents = componentTypes.filter(Boolean) as string[];
 
         return !arraysEqual(expectedComponents.sort(), actualComponents.sort());
-    };
+    }, [tutorialStep]);
 
     // Start the tutorial automatically when the component becomes visible
     useEffect(() => {
-        if (!isTutorialActive || !isComponentVisible || userInteractionDetected(['button', 'led'])) return;
+        // Exit early if not visible or tutorial not active
+        if (!isComponentVisible || !isTutorialActive) {
+            console.log("Not starting tutorial - Component visible:", isComponentVisible, "Tutorial active:", isTutorialActive);
+            return;
+        }
+        
+        console.log("Starting tutorial sequence - Component is visible and tutorial is active");
+        
+        // Only detect user interaction when we're past initial loading
+        if (tutorialStep !== 'placing-led' && userInteractionDetected(['button', 'led'])) {
+            console.log("User interaction detected, not starting tutorial automatically");
+            return;
+        }
 
         let isEffectActive = true; // Track whether effect is still active
 
         // Start tutorial with a slight delay after component becomes visible
         const timer = setTimeout(() => {
             if (!isEffectActive) return; // Skip if effect is no longer active
-
+            
+            console.log("Tutorial sequence starting with step:", tutorialStep);
+            
             if (tutorialStep === 'placing-led') {
                 placeLedInSlot();
             }
@@ -526,7 +540,7 @@ while True:
             clearTimeout(timer);
             tutorialTimersRef.current = tutorialTimersRef.current.filter(t => t !== timer);
         };
-    }, [isTutorialActive, isComponentVisible, tutorialStep, placeLedInSlot, userInteractionDetected]);
+    }, [isTutorialActive, isComponentVisible, tutorialStep, userInteractionDetected]);
 
     // Cleanup timers on unmount
     useEffect(() => {
