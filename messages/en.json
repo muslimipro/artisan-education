@@ -1,0 +1,365 @@
+{
+    "Navbar": {
+        "aboutUs": "About Us",
+        "hardware": "Kits",
+        "contact": "Contacts",
+        "login": "Login",
+        "languages": {
+            "ru": "Русский",
+            "en": "English",
+            "kk": "Қазақша"
+        },
+        "selectLanguage": "Select language:"
+    },
+    "Hero": {
+        "inspiringNewGeneration": {
+            "part1": "Building ",
+            "part2": "learners who love to grow"
+        },
+        "rotatingWords": {
+            "innovators": "innovator",
+            "engineers": "engineer",
+            "programmers": "confident",
+            "scientists": "creative"
+        },
+        "platformDescription": "We help kids grow analytical thinking, creativity, and critical problem-solving skills while enjoying the process of learning",
+        "startLearning": "Enjoy learning",
+        "watchVideo": "Watch video",
+        "browserNotSupported": "Your browser does not support this video"
+    },
+    "CircuitBoard": {
+        "components": {
+            "led": {
+                "name": "LED",
+                "description": "Light-emitting diode"
+            },
+            "button": {
+                "name": "Button",
+                "description": "Push button"
+            },
+            "board": {
+                "name": "PiBody Board"
+            },
+            "placement": {
+                "placeLed": {
+                    "line1": "Place",
+                    "line2": "LED here"
+                },
+                "placeButton": {
+                    "line1": "Place",
+                    "line2": "button here"
+                }
+            }
+        },
+        "slots": {
+            "slot1": "Slot 1 (Pin 0)",
+            "slot2": "Slot 2 (Pin 2)",
+            "slot3": "Slot 3 (Pin 28)",
+            "slot4": "Slot 4 (Pin 4)",
+            "slot5": "Slot 5 (Pin 6)",
+            "slot6": "Slot 6 (Pin 26)"
+        },
+        "palette": {
+            "allComponentsPlaced": "All modules placed on board"
+        },
+        "instructions": {
+            "step1": {
+                "title": "Step 1: Placement",
+                "description": "Drag modules onto the board"
+            },
+            "step2": {
+                "title": "Step 2: Programming",
+                "description": "Add pin definitions to the code"
+            },
+            "step3": {
+                "title": "Step 3: Execution",
+                "description": "Click the 'Run' button to check the program"
+            },
+            "step4": {
+                "title": "Step 4: Testing",
+                "description": "Now press the button on the board and the LED will light up!"
+            },
+            "header": "Instructions",
+            "restart": "Restart demonstration",
+            "copyCode": "Copy code"
+        },
+        "codeHints": {
+            "componentsPlacedCorrectly": "Great! Components are placed correctly. Now you need to configure pins for them in the code.",
+            "definePins": "Define the LED pin with Pin(0, Pin.OUT) and button with Pin(2, Pin.IN)",
+            "waitForTyping": "Please wait for code typing to complete...",
+            "programStopped": "Program stopped",
+            "programStarted": "Program started",
+            "completeCodeBeforeRunning": "Complete the code before running",
+            "restartingDemo": "Restarting demonstration...",
+            "manualModeActivated": "You've entered manual mode by clicking on the code editor.",
+            "autoTypingStopped": "Automatic pin configuration typing has been stopped. Continue entering code manually.",
+            "waitForCodeInput": "Please wait for code input to complete...",
+            "enterCodeFirst": "Enter code first",
+            "missingPinAssignments": "Missing pin assignments for LED or button in the code",
+            "codeExecutedSuccessfully": "Code executed successfully",
+            "checkPinAssignments": "Check pin assignments in the code",
+            "runCodeBeforePressing": "Run the code before pressing the button",
+            "buttonReleased": "Button released",
+            "buttonPressedLedOn": "Button pressed, LED is on!"
+        },
+        "codeTemplate": {
+            "code": "from machine import Pin\n\n# Pin setup\n\nwhile True:\n    if button.value() == True:\n        led.on()\n    else:\n        led.off()",
+            "pinSetupComment": "Pin setup"
+        },
+        "buttons": {
+            "run": "Run",
+            "stop": "Stop",
+            "openFullPlatform": "Open Full Platform"
+        },
+        "pageContent": {
+            "title": "Try the Platform",
+            "subtitle": "Create a simple circuit with an LED and button, and complete the code. Or move on to work with the full platform",
+            "codeEditorTitle": "Program Code",
+            "codePlaceholder": "Enter code here..."
+        },
+        "validation": {
+            "placeComponents": "Place the LED and button on the board first",
+            "missingImport": "Missing machine.Pin import",
+            "missingLoop": "Missing main loop (while True)",
+            "wrongLedPin": "LED must be connected to pin {slotPin}, but is connected to pin {codePin} in your code",
+            "wrongButtonPin": "Button must be connected to pin {slotPin}, but is connected to pin {codePin} in your code",
+            "missingPinDefs": "Missing pin definitions for LED and/or button",
+            "missingLedInit": "Missing LED initialization as OUTPUT pin",
+            "missingButtonInit": "Missing button initialization as INPUT pin with PULL_UP",
+            "missingButtonCheck": "Missing button state check in loop",
+            "missingLedToggle": "Missing LED state toggle based on button state",
+            "missingLedOn": "Missing code to turn on LED",
+            "missingLedOff": "Missing code to turn off LED",
+            "missingLedPin": "Missing LED pin definition",
+            "missingButtonPin": "Missing button pin definition",
+            "incompleteCode": "Your code is incomplete",
+            "codeValid": "Your code is correct! Now you can run it.",
+            "codeError": "Code validation encountered an error"
+        }
+    },
+    "Mission": {
+        "heading": "Our Mission",
+        "statements": {
+            "first": "Artisan Education exists to ignite the natural curiosity of every child, empowering them to explore their creativity, grow their skills, and enjoy the process of learning.",
+            "second": "We believe that nurturing each child's unique potential leads to confident, capable individuals ready to shape their own futures with joy and imagination."
+        },
+        "values": {
+            "inclusiveEducation": {
+                "title": "Personalized Learning Journeys",
+                "description": "Students select projects that match their interests, keeping learning engaging."
+            },
+            "innovationFocus": {
+                "title": "Focus on Skill Development",
+                "description": "Practical skills with real-world applications."
+            },
+            "globalImpact": {
+                "title": "Teacher as a Mentor",
+                "description": "Educators guide and support, fostering collaboration and exploration."
+            }
+        }
+    },
+    "LearningPlatform": {
+        "sectionTitle": "Welcome to our Platform",
+        "sectionSubtitle": "An educational platform designed to make learning robotics and programming engaging, interactive, and accessible for all skill levels.",
+        "features": {
+            "selfPaced": {
+                "title": "Self-Paced Learning",
+                "description": "Students learn at their own pace with adaptive challenges that adjust to their skill level. No step-by-step instructions allow for developing problem-solving skills",
+                "highlights": [
+                    "Adaptive learning path",
+                    "Indivdual development plan",
+                    "Personalized goals"
+                ]
+            },
+            "ide": {
+                "title": "Built-in IDE & Simulation",
+                "description": "Our platform allows students to simulate electronic circuits, write code and run projects. Simulation feature make it possible to learn engeneering without hardware",
+                "highlights": [
+                    "Code editor",
+                    "Hardware simulation",
+                    "Debugging tools"
+                ]
+            },
+            "dashboard": {
+                "title": "Project based learning",
+                "description": "Students actively engage in real-world projects, applying their knowledge to solve practical problems rather than just memorizing theories.",
+                "highlights": [
+                    "Hands-On Experience",
+                    "Critical Thinking & Collaboration",
+                    "Deeper Understanding & Retention"
+                ]
+            },
+            "curriculum": {
+                "title": "Teacher Dashboard",
+                "description": "Analytics and progress tracking for teachers. Monitor student performance, identify areas where students need help",
+                "highlights": [
+                    "Performance analytics",
+                    "Student tracking",
+                    "Customizable reports"
+                ]
+            }
+        },
+        "preview": "Preview coming soon"
+    },
+    "HardwareKits": {
+        "heading": "PiBody kit",
+        "description": "Our comprehensive hardware kit is designed to make learning electronics and programming engaging and accessible. With carefully curated components and detailed guides, students can start building real projects from day one.",
+        "stats": {
+            "modules": "modules",
+            "projects": "projects"
+        },
+        "moreInfo": "More about PiBody",
+        "features": {
+            "modular": {
+                "title": "Quick and Simple Prototyping",
+                "description": "Students can quickly create and test their ideas, encouraging experimentation and iteration."
+            },
+            "scalable": {
+                "title": "Optimized for Scaling",
+                "description": "Start with basics and add modules as students progress, providing a gradual learning curve."
+            },
+            "prototyping": {
+                "title": "Modular Design",
+                "description": "Our kit contain plug-and-play modules that easily connect and reconfigure for various projects."
+            }
+        }
+    },
+    "Stats": {
+        "heading": "Our Impact in Numbers",
+        "subheading": "Transforming education through innovative technology and hands-on learning",
+        "stats": {
+            "activeStudents": {
+                "value": "20",
+                "label": "Connected schools",
+                "description": "teaching on our platform"
+            },
+            "kits": {
+                "value": "250",
+                "label": "Kits",
+                "description": "in use"
+            }
+        },
+        "partnerSchool": {
+            "heading": "Join Us",
+            "description": "Become a partner school and be part of our family",
+            "buttonText": "Become a Partner School"
+        }
+    },
+    "Team": {
+        "sectionTitle": "Our Team",
+        "description": {
+            "heading": "Passionate Educators and Engineers",
+            "paragraph1": "Our team consists of experienced educators and engineers united by a common mission — to transform STEM education and make it accessible to every child.",
+            "paragraph2": "We believe that practical experience and a creative approach to learning help children not only absorb knowledge, but also develop critical thinking, problem-solving skills, and innovative thinking."
+        },
+        "gallery": {
+            "photo1": "Our team",
+            "photo2": "Conducting a master class",
+            "photo3": "Working on a project",
+            "photo4": "At a technology conference"
+        }
+    },
+    "Testimonials": {
+        "sectionTitle": "Appreciative reviews",
+        "sectionSubtitle": "What students, teachers, and school administrators say about us",
+        "testimonials": {
+            "student": {
+                "name": "Amiraly Bekturganov",
+                "role": "10th Grade Student",
+                "quote": "At first, I thought it would be too hard, but the projects on Artisan actually made things clearer. I liked figuring things out myself — it’s not just copying code, you really build stuff that works. Sometimes it was challenging, but that made it feel real."
+            },
+            "teacher": {
+                "name": "Adilbek Berdikhodjaev",
+                "role": "Robotics Trainer",
+                "quote": "Artisan is a fantastic resource for STEM and robotics. The magnetic connections for modules eliminate wire clutter, making everything easy to connect. The team truly understands modern students! The lessons are well-structured, and the instructions are very clear. Though still in development, Artisan Education's potential is clear. I'm excited to see how it grows and look forward to new updates!"
+            },
+            "principal": {
+                "name": "Sherkhan Sauyrtayev",
+                "role": "Deputy Principal at Quantum STEM",
+                "quote": "“What stood out to us with Artisan was how quickly students got engaged. The platform doesn’t rely on constant teacher explanation — it encourages independent thinking, which is rare in most tools. And for our teachers, it’s a relief to have structured content that actually works.”"
+            }
+        }
+    },
+    "Contact": {
+        "sectionTitle": "Stay Connected",
+        "sectionSubtitle": "Join our social media community and stay updated with the latest news and updates",
+        "form": {
+            "title": "Contact Us",
+            "nameLabel": "Your Name",
+            "namePlaceholder": "John Smith",
+            "emailLabel": "Email",
+            "emailPlaceholder": "john@example.com",
+            "messageLabel": "Message",
+            "messagePlaceholder": "How can we help you?",
+            "submitButton": "Send Message",
+            "submitting": "Sending...",
+            "success": {
+                "title": "Message Sent!",
+                "description": "Thank you for reaching out. We will get back to you as soon as possible.",
+                "newMessage": "Send another message"
+            }
+        },
+        "social": {
+            "title": "Follow Us"
+        }
+    },
+    "Footer": {
+        "description": "Modern educational platform for learning digital technologies and engineering skills.",
+        "navigation": {
+            "title": "Navigation",
+            "about": "About Us",
+            "kits": "Kits",
+            "contacts": "Contacts",
+            "login": "Login to Platform"
+        },
+        "legal": {
+            "title": "Legal Information",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Use",
+            "cookies": "Cookie Policy"
+        },
+        "resources": {
+            "title": "Resources",
+            "blog": "Blog",
+            "faq": "FAQ",
+            "support": "Support"
+        },
+        "copyright": "All rights reserved.",
+        "sitemap": "Sitemap",
+        "accessibility": "Accessibility",
+        "cookieSettings": "Cookie Settings"
+    },
+    "CompaniesRibbon": {
+        "title": "Trusted By"
+    },
+    "Auth": {
+        "Login": {
+            "backToHome": "Back to Home",
+            "loginToPlatform": "Login to Platform",
+            "email": "Email",
+            "emailPlaceholder": "example@email.com",
+            "password": "Password",
+            "passwordPlaceholder": "••••••••",
+            "loginButton": "Login",
+            "noAccount": "Don't have an account?",
+            "signupLink": "Sign up"
+        },
+        "Signup": {
+            "backToHome": "Back to Home",
+            "createAccount": "Create Account",
+            "firstName": "First Name",
+            "firstNamePlaceholder": "John",
+            "lastName": "Last Name",
+            "lastNamePlaceholder": "Smith",
+            "email": "Email",
+            "emailPlaceholder": "john@example.com",
+            "password": "Password",
+            "passwordPlaceholder": "••••••••",
+            "confirmPassword": "Confirm Password",
+            "confirmPasswordPlaceholder": "••••••••",
+            "createAccountButton": "Create Account",
+            "haveAccount": "Already have an account?",
+            "loginLink": "Login"
+        }
+    }
+}

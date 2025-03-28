@@ -1,0 +1,31 @@
+{
+    "contactInfo": {
+        "email": "info@artisan.education",
+        "phone": "+7 (706) 808-21-12"
+    },
+    "socialMedia": [
+        {
+            "name": "Instagram",
+            "url": "https://www.instagram.com/artisan.education/",
+            "gradientClasses": "from-pink-500 to-purple-600"
+        },
+        {
+            "name": "YouTube",
+            "url": "https://www.youtube.com/channel/artisan-education",
+            "gradientClasses": "from-red-500 to-red-700"
+        },
+        {
+            "name": "TikTok",
+            "url": "https://www.tiktok.com/@artisan.education",
+            "gradientClasses": "from-black to-slate-500"
+        }
+    ],
+    "stats": {
+        "activeStudents": "20",
+        "kits": "250"
+    },
+    "hardwareKits": {
+        "modules": "20+",
+        "projects": "40+"
+    }
+}
