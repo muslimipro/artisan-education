@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import VideoModal from './VideoModal';
 
 interface HeroVideoProps {
@@ -10,7 +10,16 @@ interface HeroVideoProps {
 
 const HeroVideo = ({ isVisible, isModalOpen, setIsModalOpen }: HeroVideoProps) => {
     const t = useTranslations('Hero');
+    const locale = useLocale();
     const videoRef = useRef<HTMLVideoElement>(null);
+
+    const videoUrls: Record<string, string> = {
+        kk: "https://www.youtube.com/embed/tLuB0fVZh_Q?si=npgBeJU3BRLdQo3-",
+        ru: "https://www.youtube.com/embed/vbmjZ7cQKzs?si=0x9JzMdKtBnoi9-4",
+        en: "https://www.youtube.com/embed/X4NMUYlDafI?si=Mv_U5ZvFhGmYAfJW",
+    };
+
+    const selectedVideoUrl = videoUrls[locale] || videoUrls['en'];
 
     useEffect(() => {
         if (videoRef.current) {
@@ -56,7 +65,7 @@ const HeroVideo = ({ isVisible, isModalOpen, setIsModalOpen }: HeroVideoProps) =
             <VideoModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
-                videoUrl="https://www.youtube.com/embed/vbmjZ7cQKzs?si=0x9JzMdKtBnoi9-4"
+                videoUrl={selectedVideoUrl}
             />
         </div>
     );
