@@ -21,8 +21,8 @@
         }
     ],
     "stats": {
-        "activeStudents": "20",
-        "kits": "250"
+        "activeStudents": "3",
+        "kits": "53"
     },
     "hardwareKits": {
         "modules": "20+",

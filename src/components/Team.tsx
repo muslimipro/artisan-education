@@ -11,21 +11,21 @@ const Team = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const teamPhotos = [
-        {
-            url: '/team/gallery1.jpg',
-            caption: t('gallery.photo1'),
-            isMain: true
-        },
+        // {
+        //     url: '/team/gallery1.jpg',
+        //     caption: t('gallery.photo1'),
+        //     isMain: true
+        // },
         {
             url: '/team/gallery2.jpg',
             caption: t('gallery.photo2'),
             isMain: false
         },
-        {
-            url: '/team/gallery3.jpg',
-            caption: t('gallery.photo3'),
-            isMain: false
-        },
+        // {
+        //     url: '/team/gallery3.jpg',
+        //     caption: t('gallery.photo3'),
+        //     isMain: false
+        // },
         {
             url: '/team/gallery4.jpg',
             caption: t('gallery.photo4'),

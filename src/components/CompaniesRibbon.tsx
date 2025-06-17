@@ -5,9 +5,9 @@ import { Marquee } from '@/components/ui/Marquee';
 import Image from 'next/image';
 
 const partners = [
-    { name: 'Partner 1', logo: '/partners/artisanPartner1.png' },
+    // { name: 'Partner 1', logo: '/partners/artisanPartner1.png' },
     { name: 'Partner 2', logo: '/partners/artisanPartner2.png' },
-    { name: 'Partner 3', logo: '/partners/artisanPartner3.png' },
+    // { name: 'Partner 3', logo: '/partners/artisanPartner3.png' },
     { name: 'Partner 4', logo: '/partners/artisanPartner4.png' },
     { name: 'Partner 5', logo: '/partners/artisanPartner5.png' },
 ];
