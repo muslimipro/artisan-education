@@ -156,15 +156,7 @@ const HardwareKits = () => {
                                 >
                                     <button
                                         className="inline-flex items-center px-5 py-2.5 text-md font-semibold text-white bg-primary hover:bg-white hover:text-primary border-2 border-primary rounded-xl transition-colors duration-300"
-                                        onClick={() => {
-                                            const contactSection = document.getElementById('contact');
-                                            if (contactSection) {
-                                                contactSection.scrollIntoView({
-                                                    behavior: 'smooth',
-                                                    block: 'start'
-                                                });
-                                            }
-                                        }}
+                                        onClick={() => window.open('/pibody.pdf', '_blank')}
                                     >
                                         <span>{t('moreInfo')}</span>
                                         <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
