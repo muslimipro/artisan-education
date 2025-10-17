@@ -622,7 +622,7 @@ const CircuitBoard = () => {
                 </p>
                 <div className="flex justify-center">
                     <Link
-                        href="https://learn.artisan.education/signup" className="bg-primary text-white hover:shadow-lg hover:scale-[1.04] font-semibold py-3 px-5 rounded-xl transition-all duration-300">
+                        href="https://rtsan.ai/signup" className="bg-primary text-white hover:shadow-lg hover:scale-[1.04] font-semibold py-3 px-5 rounded-xl transition-all duration-300">
                         {t('buttons.openFullPlatform')}
                     </Link>
                 </div>

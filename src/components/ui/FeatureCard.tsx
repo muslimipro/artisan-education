@@ -21,7 +21,7 @@ const FeatureCard: React.FC<Feature> = ({ title, description, image, className =
                         src={image}
                         alt={t(title)}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                     />
                 </div>
                 <div className="p-6">

@@ -326,7 +326,7 @@ const LearningPlatform = () => {
                                                 <div className="w-2 h-2 rounded-full bg-green-500"></div>
                                             </div>
                                             <div className="mx-auto text-xs text-gray-500">
-                                                learn.artisan.education
+                                                rtsan.ai
                                             </div>
                                         </div>
                                     </div>

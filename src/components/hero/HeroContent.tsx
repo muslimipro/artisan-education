@@ -21,7 +21,7 @@ const HeroContent = ({ isVisible, rotatingWords }: HeroContentProps) => {
 
             <div className="flex">
                 <Link
-                    href="https://learn.artisan.education/signup" className="btn-primary text-md rounded-xl hover:text-primary border-2 border-primary text-center group flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
+                    href="https://rtsan.ai/signup" className="btn-primary text-md rounded-xl hover:text-primary border-2 border-primary text-center group flex items-center justify-center gap-2 hover:scale-105 transition-transform duration-300">
                     <span>{t('startLearning')}</span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

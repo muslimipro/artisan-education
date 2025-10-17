@@ -11,7 +11,7 @@
         },
         {
             "name": "YouTube",
-            "url": "https://www.youtube.com/channel/artisan-education",
+            "url": "https://www.youtube.com/@artisan_education",
             "gradientClasses": "from-red-500 to-red-700"
         },
         {
@@ -21,8 +21,8 @@
         }
     ],
     "stats": {
-        "activeStudents": "3",
-        "kits": "53"
+        "activeStudents": "170",
+        "kits": "475"
     },
     "hardwareKits": {
         "modules": "20+",

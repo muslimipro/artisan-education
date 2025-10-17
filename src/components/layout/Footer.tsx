@@ -128,7 +128,7 @@ const Footer = () => {
                 { name: t('navigation.about'), href: '#aboutus' },
                 { name: t('navigation.kits'), href: '#hardware' },
                 { name: t('navigation.contacts'), href: '#contact' },
-                { name: t('navigation.login'), href: 'https://learn.artisan.education/signup' },
+                { name: t('navigation.login'), href: 'https://rtsan.ai/signup' },
             ],
         },
         {

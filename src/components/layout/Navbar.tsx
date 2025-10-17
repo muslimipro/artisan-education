@@ -228,7 +228,7 @@ const Navbar = () => {
                     </div>
 
                     <Link
-                        href="https://learn.artisan.education/signup"
+                        href="https://rtsan.ai/signup"
                         className="btn-primary border-2 border-primary flex items-center gap-2 group"
                     >
                         <span>{t('login')}</span>
@@ -304,7 +304,7 @@ const Navbar = () => {
                         ))}
 
                         <Link
-                            href="https://learn.artisan.education/signup"
+                            href="https://rtsan.ai/signup"
                             className="btn-primary inline-flex items-center justify-center gap-2 w-full"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
