@@ -286,6 +286,7 @@
         "form": {
             "title": "Contact Us",
             "nameLabel": "Your Name",
+            "customerSupportManager": "Customer relations manager",
             "namePlaceholder": "John Smith",
             "emailLabel": "Email",
             "emailPlaceholder": "john@example.com",

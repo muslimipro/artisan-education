@@ -286,6 +286,7 @@
         "form": {
             "title": "Бізбен байланысыңыз",
             "nameLabel": "Сіздің атыңыз",
+            "customerSupportManager": "Клиенттермен жұмыс жөніндегі менеджер",
             "namePlaceholder": "Әлібек Әлиев",
             "emailLabel": "Email",
             "emailPlaceholder": "alibek@gmail.com",

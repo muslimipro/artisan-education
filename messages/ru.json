@@ -286,6 +286,7 @@
         "form": {
             "title": "Свяжитесь с нами",
             "nameLabel": "Ваше Имя",
+            "customerSupportManager": "Менеджер по работе с клиентами",
             "namePlaceholder": "Алибек Алиев",
             "emailLabel": "Email",
             "emailPlaceholder": "alibek@gmail.com",
