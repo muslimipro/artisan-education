@@ -204,7 +204,7 @@ export default function SignupPage() {
                         <div className="text-center">
                             <p className="mt-2 text-sm text-gray-600">
                                 {t('haveAccount')}{' '}
-                                <Link href="https://rtsan.ai/signup" className="font-medium text-primary hover:text-primary/80 transition-colors duration-300">
+                                <Link href="https://learn.artisan.education/signup" className="font-medium text-primary hover:text-primary/80 transition-colors duration-300">
                                     {t('loginLink')}
                                 </Link>
                             </p>
